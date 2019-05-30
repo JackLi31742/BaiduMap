@@ -1,0 +1,10 @@
+/target/*
+/.settings/*
+/src/main/webapp/baidu/*
+/src/main/webapp/baidu_offline/*
+/src/main/webapp/face_pic/*
+/src/main/webapp/ocx/*
+/src/main/webapp/WEB-INF/logs/*
+/.classpath
+/.project
+/target/

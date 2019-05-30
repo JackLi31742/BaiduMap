@@ -1,0 +1,16 @@
+html {
+	font-family: 'Microsoft Yahei'
+}
+.wrapper {
+	padding: 20px;
+	position: relative;
+}
+
+#main {
+}
+
+#main_1 {
+	/* position: absolute;*/ 
+	 color: #A52A2A;
+	 bottom: 20px;
+}

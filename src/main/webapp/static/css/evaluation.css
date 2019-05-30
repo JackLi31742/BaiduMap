@@ -1,0 +1,434 @@
+/* 模块标题 */
+h4.title{
+	width:1450px;
+	height:50px;
+	line-height: 20px;
+	margin-left:20px;
+	font-size:22px;
+	font-weight:bold;
+	font-family:simHei;/* 黑体 */
+	color:#535353;
+}
+/* 进度统计 */
+#jinDu{
+	width:320px;
+	height:50px;
+	font-family:simHei;
+	background-color:#EBEBEB;
+	color:blue;
+	box-shadow: 1px 1px 1px 1px #000000;
+	border-radius: 3px;
+}
+
+
+/* 测试任务按钮（未完成） */	
+input.buttonTest {
+ 	background-color:#ffffff;
+ 	width:57px;
+	height:24px;
+	color: #999999;
+	border:1px solid #999999;
+	margin-bottom:4px;
+	cursor:hand;
+}
+
+/* 测试任务按钮（未完成） */	
+input.buttonTest:hover{
+	background-color: #e0dfdf;
+ 	width:57px;
+	height:24px;
+	color: #999999;
+	border:1px solid #999999;
+	margin-bottom:4px;
+	cursor:hand;
+}
+
+/* 测试任务按钮（已完成） */	
+input.buttonTested {
+ 	background-color:#ECC848;
+ 	width:57px;
+	height:24px;
+	color: #113965;
+	border:1px solid #999999;
+	margin-bottom:4px;
+	cursor:hand;
+}
+
+/* 测试任务按钮（已完成） */	
+input.buttonTested:hover{
+ 	background-color:#ECC088;
+ 	width:57px;
+	height:24px;
+	color: #113965;
+	border:1px solid #999999;
+	margin-bottom:4px;
+	cursor:hand;
+}
+
+
+/* 权重选择器表格属性 */
+.tableSelect tr td{
+	border:1px solid #909090;
+	width:30%;
+	padding-left:15px;
+}
+
+
+
+/* 下拉菜单按钮上的文字 */
+span.title{
+	width: 98%;
+	height: 30px;
+	font-size: 16px;
+	background-color: #BE341E;
+	display: block;
+	color: #ffffff;
+	line-height: 32px;
+	text-decoration: none;
+	text-indent: 10px;
+	border-radius: 5px;
+}
+
+/* 下拉菜单按钮上的文字 */
+span.title:hover{
+	width: 99%;
+	height: 30px;
+	font-size: 16px;
+	background-color: #AE3410;
+	display: block;
+	color: #ffffff;
+	line-height: 32px;
+	text-decoration: none;
+	text-indent: 10px;
+	border-radius: 5px;
+}
+
+/* 下拉菜单按钮 */
+.left a{
+	width: 45%;
+	height: 35px;
+	font-size: 16px;
+	float:left;
+	background-color: #2968ad;
+	display: block;
+	color: #ffffff;
+	line-height: 32px;
+	text-decoration: none;
+	text-indent: 10px;
+	border: solid 2px #ffffff;
+	border-radius: 5px;
+	margin: 5px auto;
+}
+
+/* 下拉菜单按钮 */
+.left a:hover{
+	width: 46%;
+	height: 35px;
+	font-size: 16px;
+	float:left;
+	background-color: #2968ad;
+	display: block;
+	color: #ffffff;
+	line-height: 32px;
+	text-decoration: none;
+	text-indent: 10px;
+	border: solid 2px #ffffff;
+	border-radius: 5px;
+	margin: 5px auto;
+}
+
+/* 选择器显示文字 */
+span.chosen_status{
+	color:#ff0000;
+	line-height: 45px;
+	text-align:right;
+	float:right;
+	margin-right:20px;
+}
+
+/* 下拉菜单 */
+.menu{
+	width: 180px;
+	background-color: #ffffff;
+	box-shadow: 2px 2px 2px 2px #333;/* 阴影 */
+	display: none;
+	position: absolute;
+}
+.menu a{
+	display: block;
+	width: 180px;
+	height: 40px;
+	text-indent: 20px;
+	color: #000000;
+	text-decoration: none;
+	line-height: 40px;
+}
+.compareImg{
+	width: 100%;
+	height:320px;
+	background-color: #A6A6A6;
+	display: block;
+	color: #ffffff;
+	/* line-height: 32px; */
+	text-decoration: none;
+	/* text-indent: 10px; */
+	border-radius: 5px;
+	margin-bottom: 2px;
+}
+
+/* 图片复选框 */
+.imgCheckBox{
+	width:100%;
+	height:15px;
+	margin-top:0px;
+	border-radius: 10px 10px 0px 0px;
+	border: solid 1px #15589B;
+	background: linear-gradient(to bottom,  rgba(2,68,128,1) 0%,rgba(39,39,39,30) 100%);
+	color: #4B95E0;
+	font-size:12px;
+	font-family:simHei;
+	cursor:pointer; 
+}
+
+.imgCheckBox:hover{
+	width:100%;
+	height:25px;
+	margin-top:-10px;
+	border-radius: 10px 10px 0px 0px;
+	position:relative;
+	z-index:9999;
+	border: solid 1px #15589B;
+	background: linear-gradient(to bottom,  rgba(2,68,128,1) 0%,rgba(2,39,39,30) 100%);
+	color: white;
+	font-size:12px;
+	font-family:simHei;
+	cursor:pointer; 
+}
+.imgCheckBox.chosen {
+	width:100%;
+	height:15px;
+	margin-top:0px;
+	border-radius: 10px 10px 0px 0px;
+	/* background-color: red; */
+	border: solid 0px black;
+	background: linear-gradient(to bottom,  rgba(255,0,0,1) 0%,rgba(155,0,0,255) 100%);
+	color: white;
+	font-size:12px;
+	font-family:simHei;
+	cursor:pointer; 
+}
+.imgCheckBox.chosen:hover {
+	width:100%;
+	height:25px;
+	margin-top:-10px;
+	border-radius: 10px 10px 0px 0px;
+	position:relative;
+	z-index:9999;
+	background-color: #FA2E1A;
+	color: white;
+	font-size:12px;
+	font-family:simHei;
+	cursor:pointer; 
+}
+.imgInfo span{
+	margin:2px;
+	font-size:10px;
+	height:15px;
+	line-height: 15px;
+	font-family:simHei;
+}
+
+/* 滑块控件 */
+.sliderWall {
+	background-color: #E0E0E0;
+	height:50px;
+	padding: 15px;
+	margin-top: 10px;
+	border-radius: 5px;
+}
+.sliderVal {
+	color: green;
+}
+
+/* 图像表格个分页的各个按钮 */
+.imgs{
+	margin: 0px auto;
+	width: 100%;
+	/* background-color: #437E83; */
+	text-align: center;
+	padding-top: 10px;
+}
+
+.imgs table{
+	width: 100%;
+	border-collapse:collapse;
+	border: solid 1px #ffffff;
+}
+.imgs td{
+	background-color: #4e4e4e;
+	border: solid 1px #ffffff;
+	width: 100px;
+	max-width:100px;
+	height: 100px;
+}
+
+.imgs td div.containerImg{
+	border:0px solid blue;
+	text-align:center;
+	max-width:100px;
+	width:100%; 
+	position:relative; 
+	height:100%; 
+	cursor:pointer; 
+	margin-left:0px; 
+	padding-left:0px;
+}
+
+.imgs td div.containerImg div.mark{
+	width:18px;
+	height:18px;
+	font-size:14px;
+	color:#ff0000;
+	line-height:18px;
+	text-align:center;
+	position:absolute;
+	bottom:5px;
+	right:5px;
+	border-radius:9px;
+	font-weight:bold;
+	background-color:#fff;
+	display:none;
+}
+.imgs td div.containerImg.chosen div.mark{
+	display:block;
+}
+
+.menu a.chosen{
+	color:red;
+}
+.menu a:hover{
+	background-color: #e0dfdf;
+}
+
+.img-w3-agile .grid {
+	width:87px;
+	height: 120px;
+	float:left;
+	text-align: center;
+	background-color: #4E4E4E;
+	border: 1px solid #FFFFFF;
+}
+.img-w3-agile .grid:hover {
+	width:87px;
+	height: 120px;
+	float:left;
+	text-align: center;
+	background-color: #4E4E4E;
+	border: 1px solid #FFFFFF;
+}
+
+.img-w3-agile .grid.chosen {
+	width:87px;
+	height: 120px;
+	float:left;
+	text-align: center;
+	background-color: #4E4E4E;
+	border: 2px solid blue;
+}
+
+.img-w3-agile .grid figure {
+	position: relative;
+	text-align: center;
+	height:104;
+	padding:4px;
+}
+
+.img-w3-agile .grid figure img {
+	text-align: center;
+	max-width: 100%;
+	cursor:pointer;
+	max-height:100%;
+}
+
+.img-w3-agile figure.effect-apollo img {
+	opacity: 0.95;
+	line-height:104px;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale3d(1.05,1.05,1);
+	transform: scale3d(1.05,1.05,1);
+}
+
+.img-w3-agile figure.effect-apollo:hover img {
+	opacity: 0.8;
+	-webkit-transform: scale3d(1,1,1);
+	translateX:(60);
+	transform: scale3d(0.9,0.9,0.9); 
+	/*opacity: 1;
+	-webkit-transform: scale3d(1,1,1);
+	translateX:(60);
+	margin-left: -20px;
+	transform: scale3d(2,2,2);
+	position:absolute;
+	z-index:999;*/
+}
+
+.btnStartTest{
+	text-align:center;
+	cursor:pointer;
+	margin-left:-10px;
+	margin-top:50px;
+	border-radius:10px;
+	height:60px;
+	width:90%;
+	line-height:60px;
+	background: -webkit-gradient(linear, left top, left bottom, 
+		color-stop(10%,rgba(160,214,100,1)), 
+		color-stop(60%,rgba(2,128,68,1)),
+		color-stop(95%,rgba(160,214,100,1))
+	);
+}
+
+.btnStartTest:hover{
+	text-align:center;
+	cursor:pointer;
+	margin-left:-10px;
+	margin-top:50px;
+	border-radius:10px;
+	height:60px;
+	width:90%;
+	line-height:60px;
+	background: -webkit-gradient(linear, left top, left bottom, 
+		color-stop(10%,rgba(160,214,100,1)), 
+		color-stop(90%,rgba(100,128,68,1)), 
+		color-stop(95%,rgba(160,214,100,1))
+	);
+}
+
+/* 星星评价控件 */
+.raty .target-demo {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.raty div.hint {
+	margin-left:-50px;
+	background-color: #F8F8F8;
+	border-radius: 5px; color: #333;
+	display: inline-block;
+	height: 27px;
+	font-size: 1.2em;
+	text-align: center;
+	width: 105px;
+	vertical-align: middle;
+	font-family:simHei;/* 黑体 */
+}
+
+.zPlayer{background:#000;position:relative;}
+.zPlayer .playTxt{
+    background: none repeat scroll 0 0 #CCC;
+    border-radius:2px;
+    float: left;
+    height: 30px;line-height: 30px;margin-top: 8px;width: 70%;
+	text-shadow: 0 0 4px #fff, 0 0 5px #fff;text-align:center;
+}

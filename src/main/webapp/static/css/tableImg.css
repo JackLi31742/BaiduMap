@@ -1,0 +1,108 @@
+
+/* 一下是query.jsp要用的 */
+/* #main .left{
+	float: left;
+	width: 180px;
+	background: rgba(255,255,255,0.3);
+	border-radius: 10px;
+	padding: 20px 10px;
+} */
+#main .imgs{
+	margin: 0px auto;
+	width: 730px;
+	background-color: #800040;
+	padding: 10px;
+}
+#main .imgs table{
+	border-collapse:collapse;
+	border: solid 1px #ffffff;
+}
+#main .imgs td{
+	background-color: #4e4e4e;
+	border: solid 1px #ffffff;
+	width: 100px;
+	height: 100px;
+}
+#main .imgs td div.container{
+	position:relative;
+    align:center;
+    valign:middle;
+	width:73px;
+	height:100px;
+	cursor:pointer;
+}
+#main .imgs td div.container div.mark{
+	width:18px;
+	height:18px;
+	font-size:14px;
+	color:#ff0000;
+	line-height:18px;
+	text-align:center;
+	position:absolute;
+	bottom:5px;
+	right:5px;
+	border-radius:9px;
+	font-weight:bold;
+	background-color:#fff;
+	display:none;
+}
+#main .imgs td div.container.chosen div.mark{
+	display:block;
+}
+#main .imgs .pager{
+	color: #ffffff;
+	text-decoration: none;
+	width: 600px;
+	//height: 32px;
+	margin: 10px auto;
+	line-height: 32px;
+}
+#main .imgs .pager a{
+	display: inline-block;
+	color: #ffffff;
+	color:#ffffff;
+	text-decoration: none;
+}
+#main .imgs .pager a.next,#main .right .imgs .pager a.prev{
+	height: 32px;
+	width: 100px;
+}
+#main .imgs .pager a.prev{
+	float: left;
+}
+#main .imgs .pager a.next{
+	float: right;
+}
+#main .imgs .pager .num{
+	width: 400px;
+	height: 32px;
+	margin: 0px auto;
+}
+#main .imgs .pager a.link{
+	padding:0px 5px;
+}
+#main .imgs .pager .num a.active{
+	background-color: #123965;
+}
+#main .imgs .pager .num input{
+	width: 44px;
+}
+#main .imgs .pager .num .go_btn{
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
+	background-color: #123965;
+}
+#main .operator .big_img{
+	background-color: #034da2;
+	text-align: center;
+	padding: 10px;
+	float: left;
+	width: 345px;
+	height: 345px;
+}
+#main .operator .big_img .img{
+	width: 345px;
+	height: 345px;
+	background-color: #252525;
+}

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd  
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd  
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd  
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"
+	default-lazy-init="true">
+
+	<description>Spring Configuration</description>
+
+	<!-- 开启注解处理器 -->
+	<context:annotation-config />
+
+	<!-- 开启组件自动扫描；使用Annotation自动注册Bean，解决事物失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller注解。 -->
+	<!-- <context:component-scan base-package="com.springmvc">base-package 如果多个，用“,”分隔 
+		<context:exclude-filter type="annotation" expression="com.springmvc.controller"/> 
+		</context:component-scan> -->
+
+	<context:component-scan base-package="com.springmvc.dao,com.springmvc.service" />
+
+	<!--<!– 自动扫描 –> -->
+	<!--<context:component-scan base-package="com.vitelon.v"/> -->
+
+	<!--引入属性文件 -->
+	<context:property-placeholder location="classpath:dbconfig.properties" />
+
+
+	<!-- dataSource 配置数据源 -->
+	<bean id="dataSource_mysql" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${mysql.driver}" />
+		<property name="jdbcUrl" value="${mysql.url}" />
+		<property name="user" value="${mysql.username}" />
+		<property name="password" value="${mysql.password}" />
+
+		<property name="maxPoolSize" value="15" />
+		<property name="minPoolSize" value="3" />
+		<property name="initialPoolSize" value="3" />
+	</bean>
+
+	<bean id="dataSource_mysql2" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${mysql.driver2}" />
+		<property name="jdbcUrl" value="${mysql.url2}" />
+		<property name="user" value="${mysql.username2}" />
+		<property name="password" value="${mysql.password2}" />
+
+		<property name="maxPoolSize" value="15" />
+		<property name="minPoolSize" value="3" />
+		<property name="initialPoolSize" value="3" />
+	</bean>
+	
+	<bean id="dataSource_mysql3" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${mysql.driver3}" />
+		<property name="jdbcUrl" value="${mysql.url3}" />
+		<property name="user" value="${mysql.username3}" />
+		<property name="password" value="${mysql.password3}" />
+
+		<property name="maxPoolSize" value="15" />
+		<property name="minPoolSize" value="3" />
+		<property name="initialPoolSize" value="3" />
+	</bean>
+
+	<!-- <bean id="dataSource_neo4j" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driver" value="${neo4j.driver}" />
+		<property name="url" value="${neo4j.url}" />
+		<property name="user" value="${neo4j.username}" />
+		<property name="password" value="${neo4j.password}" />
+
+		<property name="maxPoolSize" value="20" />
+		<property name="minPoolSize" value="2" />
+		<property name="initialPoolSize" value="10" />
+	</bean> -->
+
+	<!-- 动态数据源 -->
+	<bean id="dataSource" class="com.springmvc.jdbc.datasource.DynamicDataSource"
+		lazy-init="true">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String" value-type="javax.sql.DataSource">
+				<!-- 可配置多个数据源 -->
+				<entry key="dataSource_mysql" value-ref="dataSource_mysql"></entry>
+				<entry key="dataSource_mysql2" value-ref="dataSource_mysql2"></entry>
+				<!-- <entry key="dataSource_neo4j" value-ref="dataSource_neo4j"></entry> -->
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSource_mysql"></property>
+	</bean>
+
+	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
+		<property name="dataSource" ref="dataSource"/> 自动扫描mapping.xml文件 <property 
+		name="mapperLocations" value="classpath:com/springmvc/sql/*.xml"/> </bean> -->
+
+	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> <property 
+		name="basePackage" value="com.springmvc.dao"/> <property name="sqlSessionFactoryBeanName" 
+		value="sqlSessionFactory"/> </bean> -->
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" abstract="false" lazy-init="false" autowire="default">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" abstract="false" lazy-init="false" autowire="default">
+		<constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
+	</bean>
+
+
+
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true"  />
+
+	<!-- 对dataSource 数据源进行事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+
+	<!-- 配置数据库注解aop -->
+	<bean id="dataSourceAspect" class="com.springmvc.jdbc.datasource.DataSourceAspect" />
+
+	<aop:config>
+		<aop:pointcut id="transactionPointcut"
+			expression="execution(* com.springmvc.dao.*.*.*(..))" />
+		<aop:advisor pointcut-ref="transactionPointcut"
+			advice-ref="transactionAdvice" order="2" />
+
+		<!--数据源选择切面,保证在事务开始之前执行 -->
+		<aop:advisor pointcut-ref="transactionPointcut"
+			advice-ref="dataSourceAspect" order="1" />
+	</aop:config>
+
+	<!-- interception transatcion -->
+	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+</beans>  
